@@ -25,8 +25,14 @@ export default async function Home() {
   // })}
 
   return (
-    <main className="flex w-full items-center justify-center bg-green-500">
-      Hello world
-    </main>
+    <div className="">
+      <nav className="mb-14 flex h-12 w-full items-center justify-center  border-b border-slate-800">
+        <h1>XD</h1>
+      </nav>
+      <div className="flex flex-col items-center justify-center gap-4">
+        <h1 className="text-4xl font-bold">Next character in</h1>
+        <h2>{"Guess who's today's character"}</h2>
+      </div>
+    </div>
   );
 }

@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 
 export const CollapseGameButton = () => {
   return (
-    <Collapsible>
-      <CollapsibleTrigger className="DialogContent w-full">
-        <Button variant="outline" size="icon" className="DialogContent">
+    <Collapsible className="w-full">
+      <CollapsibleTrigger asChild className="DialogContent ">
+        <Button variant="outline" className="DialogContent w-full">
           <PlayIcon
             className={`h-[1.2rem] w-[1.2rem] text-primary ease-in-out  dark:text-secondary`}
           />
