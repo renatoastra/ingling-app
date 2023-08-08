@@ -29,9 +29,6 @@ export const Sidebar = () => {
           <div className="flex h-32 w-full items-center justify-center">
             <CollapseGameButton />
           </div>
-          <Button variant="outline" size="icon">
-            <HomeIcon className="h-[1.2rem] w-[1.2rem] text-primary dark:text-secondary" />
-          </Button>
         </div>
 
         <footer className="flex h-full w-full flex-col items-center justify-end ">
