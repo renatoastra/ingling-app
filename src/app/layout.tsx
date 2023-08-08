@@ -1,7 +1,6 @@
 "use client";
 
 import "@/styles/globals.css";
-import { GitHubLogoIcon, HomeIcon } from "@radix-ui/react-icons";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Sidebar } from "@/components/Sidebar/Sidebar";
