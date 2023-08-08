@@ -1,10 +1,7 @@
-"use client";
-
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import { Sidebar } from "@/components/Sidebar/Sidebar";
-import { ThemeProvider } from "next-themes";
+import { Providers } from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,10 +27,9 @@ export default function RootLayout({
           inter.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <Sidebar />
+        <Providers>
           <div className="pl-[150px]">{children}</div>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
