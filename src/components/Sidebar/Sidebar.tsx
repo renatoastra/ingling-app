@@ -1,16 +1,22 @@
 "use client";
-
 import { HomeIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { CollapseGameButton } from "@/components/Sidebar/CollapseGameButton";
 import { ModeToggle } from "../Theme/ModeToggle";
 import { Button } from "../ui/button";
+import { ChangeLanguage } from "./ChangeLang";
 
 export const Sidebar = () => {
   return (
-    <nav className="absolute z-10  h-screen w-[150px]  border-r border-indigo-300 dark:border-slate-800">
+    <nav
+      className="absolute z-10  h-screen w-[150px]  border-r
+     border-indigo-300 dark:border-slate-800"
+    >
       <div className="flex h-full w-full flex-col items-center justify-start gap-3 px-4 py-11 ">
         <div>
-          <h1 className="mb-4 font-mono font-bold uppercase text-indigo-300 dark:text-slate-200">
+          <h1
+            className="mb-4 font-mono font-bold uppercase
+           text-indigo-300 dark:text-slate-200"
+          >
             Inkling
             <span className="text-2xl text-slate-700 dark:text-indigo-500">
               .
@@ -20,6 +26,9 @@ export const Sidebar = () => {
         </div>
         <div>
           <ModeToggle />
+        </div>
+        <div>
+          <ChangeLanguage />
         </div>
         <div className="flex h-full w-full flex-col items-center justify-center gap-8 ">
           <Button variant="outline" size="icon" className="w-full">
@@ -33,7 +42,10 @@ export const Sidebar = () => {
 
         <footer className="flex h-full w-full flex-col items-center justify-end ">
           <Button variant="outline" size="icon" className="w-full">
-            <GitHubLogoIcon className="h-[1.2rem] w-[1.2rem] text-primary dark:text-secondary" />
+            <GitHubLogoIcon
+              className="h-[1.2rem] w-[1.2rem] text-primary
+             dark:text-secondary"
+            />
           </Button>
         </footer>
       </div>

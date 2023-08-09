@@ -1,5 +1,4 @@
 import { api } from "@/trpc/server";
-import useTranslation from "next-translate/useTranslation";
 
 export default async function Home() {
   const data = await api.character.getByGame.query({
@@ -24,7 +23,6 @@ export default async function Home() {
   //     </div>
   //   );
   // })}
-  const { t, lang } = useTranslation("common");
   return (
     <div className="">
       <nav className="mb-14 flex h-12 w-full items-center justify-center  border-b border-slate-800">
@@ -32,7 +30,6 @@ export default async function Home() {
       </nav>
       <div className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-4xl font-bold">Next character in</h1>
-        {t("home:title")}
       </div>
     </div>
   );

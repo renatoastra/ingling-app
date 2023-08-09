@@ -1,4 +1,6 @@
 {
   "title": "Ola mundo",
-  "variable-example": "Using a variable {{count}}"
+  "variable-example": "Using a variable {{count}}",
+  "english": "Inglês",
+  "portuguese": "Português"
 }
