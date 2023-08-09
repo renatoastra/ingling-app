@@ -24,7 +24,7 @@ export default async function Home() {
   //     </div>
   //   );
   // })}
-  const { t, lang } = useTranslation();
+  const { t, lang } = useTranslation("common");
   return (
     <div className="">
       <nav className="mb-14 flex h-12 w-full items-center justify-center  border-b border-slate-800">
