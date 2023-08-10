@@ -17,11 +17,6 @@ type Props = {
   params: { locale: string };
 };
 
-export const metadata = {
-  title: "Inkling.app",
-  description: "Inkling - Guess who",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
-};
 async function getMessages(locale: string) {
   try {
     //@ts-ignore
@@ -44,6 +39,8 @@ export async function generateMetadata({ params: { locale } }: Props) {
 
   return {
     title: t("LocaleLayout.title"),
+    description: "Inkling - Guess who",
+    icons: [{ rel: "icon", url: "/favicon.ico" }],
   };
 }
 
