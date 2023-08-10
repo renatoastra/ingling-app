@@ -1,0 +1,13 @@
+{
+  "Index": {
+    "title": "Hello world!"
+  },
+  "Sidebar": {
+    "english": "English",
+    "spanish": "Spanish",
+    "portuguese": "Portuguese"
+  },
+  "LocaleLayout": {
+    "title": "next-intl example"
+  }
+}

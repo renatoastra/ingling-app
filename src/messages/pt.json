@@ -1,0 +1,13 @@
+{
+  "Index": {
+    "title": "OLA MUNDO"
+  },
+  "Sidebar": {
+    "english": "Inglês",
+    "spanish": "Espanhol",
+    "portuguese": "Português"
+  },
+  "LocaleLayout": {
+    "title": "next-intl example"
+  }
+}

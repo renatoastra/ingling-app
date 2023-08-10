@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { MoonIcon, SunIcon, TextIcon } from "@radix-ui/react-icons";
+import { TextIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -9,10 +9,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useSetLanguage } from "@/hooks/useSetLanguage";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next-intl/client";
 
 export function ChangeLanguage() {
-  const setLanguage = useSetLanguage();
+  const t = useTranslations("Sidebar");
+  const [isPending, startTransition] = React.useTransition();
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleOnChangeLanguage = (nextLocale: string) => {
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale });
+    });
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -31,8 +42,12 @@ export function ChangeLanguage() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setLanguage("en")}></DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setLanguage("pt")}></DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleOnChangeLanguage("en")}>
+          {t("english")}
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => handleOnChangeLanguage("pt")}>
+          {t("portuguese")}
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

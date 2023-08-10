@@ -35,6 +35,9 @@ const config = {
         checksVoidReturn: { attributes: false },
       },
     ],
+    "@typescript-eslint/ban-ts-comment": "off"
+    
+
   },
 };
 

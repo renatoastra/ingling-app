@@ -1,4 +1,5 @@
 import { api } from "@/trpc/server";
+import { Title } from "./_components/Title";
 
 export default async function Home() {
   const data = await api.character.getByGame.query({
@@ -29,7 +30,7 @@ export default async function Home() {
         <h1>XD</h1>
       </nav>
       <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-4xl font-bold">Next character in</h1>
+        <Title />
       </div>
     </div>
   );
