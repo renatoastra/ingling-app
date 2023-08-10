@@ -1,5 +1,5 @@
 import { api } from "@/trpc/server";
-import { Title } from "./_components/Title";
+import { SelectOptions } from "./_components/SelectOptions";
 
 export default async function Home() {
   const data = await api.character.getByGame.query({
@@ -24,13 +24,26 @@ export default async function Home() {
   //     </div>
   //   );
   // })}
+
+  console.log(data);
+
   return (
     <div className="">
-      <nav className="mb-14 flex h-12 w-full items-center justify-center  border-b border-slate-800">
-        <h1>XD</h1>
-      </nav>
-      <div className="flex flex-col items-center justify-center gap-4">
-        <Title />
+      <nav
+        className="mb-14 flex
+        h-12  w-full
+        items-center justify-center
+        border-b border-slate-800"
+      ></nav>
+      <div
+        className="flex flex-col 
+        items-center
+        justify-center gap-4"
+      >
+        <h1 className="mb-7 mt-2 text-5xl font-bold">
+          Próximo personagem em 03:38:21
+        </h1>
+        <SelectOptions data={data} />
       </div>
     </div>
   );
