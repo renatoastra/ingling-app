@@ -27,10 +27,6 @@ async function getMessages(locale: string) {
   }
 }
 
-export function generateStaticParams() {
-  return ["en", "pt"].map((locale) => ({ locale }));
-}
-
 export async function generateMetadata({ params: { locale } }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const messages = await getMessages(locale);
