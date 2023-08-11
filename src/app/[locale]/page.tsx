@@ -33,7 +33,7 @@ export default async function Home() {
         className="mb-14 flex
         h-12  w-full
         items-center justify-center
-        border-b border-slate-800"
+        border-b border-input"
       ></nav>
       <div
         className="flex flex-col 

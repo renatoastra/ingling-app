@@ -42,10 +42,16 @@ export function ChangeLanguage() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => handleOnChangeLanguage("en")}>
+        <DropdownMenuItem
+          className="text-primary dark:text-secondary"
+          onClick={() => handleOnChangeLanguage("en")}
+        >
           {t("english")}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleOnChangeLanguage("pt")}>
+        <DropdownMenuItem
+          className="text-primary dark:text-secondary"
+          onClick={() => handleOnChangeLanguage("pt")}
+        >
           {t("portuguese")}
         </DropdownMenuItem>
       </DropdownMenuContent>
