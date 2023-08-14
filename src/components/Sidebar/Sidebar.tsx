@@ -4,6 +4,7 @@ import { CollapseGameButton } from "@/components/Sidebar/CollapseGameButton";
 import { ModeToggle } from "../Theme/ModeToggle";
 import { Button } from "../ui/button";
 import { ChangeLanguage } from "./ChangeLang";
+import Link from "next/link";
 
 export const Sidebar = () => {
   return (
@@ -41,12 +42,14 @@ export const Sidebar = () => {
         </div>
 
         <footer className="flex h-full w-full flex-col items-center justify-end ">
-          <Button variant="outline" size="icon" className="w-full">
-            <GitHubLogoIcon
-              className="h-[1.2rem] w-[1.2rem] text-primary
-             dark:text-secondary"
-            />
-          </Button>
+          <Link href={"https://github.com/renatoastra"} target="_blank">
+            <Button variant="outline" size="icon" className="w-full">
+              <GitHubLogoIcon
+                className="h-[1.2rem] w-[1.2rem] text-primary
+              dark:text-secondary"
+              />
+            </Button>
+          </Link>
         </footer>
       </div>
     </nav>
