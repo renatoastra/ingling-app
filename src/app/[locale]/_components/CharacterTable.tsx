@@ -64,6 +64,7 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
                 }
               </TableCell>
               <TableCell
+                title={`${character.element.name}`}
                 className={clsx(
                   ` border-collapse  border text-center dark:border-slate-700`,
                   character.elementId === dailyCharacter.Character.element.id

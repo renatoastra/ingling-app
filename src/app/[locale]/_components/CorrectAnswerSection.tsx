@@ -38,7 +38,7 @@ export const CorrectAnswerSection = ({
           <CharacterTableHeader />
           <TableBody>
             <TableRow className="bg-secondary dark:bg-slate-900">
-              <TableCell className="flex font-medium">
+              <TableCell className="flex font-medium" title={character.name}>
                 {
                   <Image
                     src={character.image}
@@ -57,6 +57,9 @@ export const CorrectAnswerSection = ({
                     alt=""
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.element.name}
+                </p>
               </TableCell>
               <TableCell className="">
                 {
@@ -67,6 +70,9 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.faction.name}
+                </p>
               </TableCell>
               <TableCell className="text-right">
                 {
@@ -77,6 +83,9 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.weapon.name}
+                </p>
               </TableCell>
               <TableCell className="text-right">
                 {
@@ -87,6 +96,9 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.talents.name}
+                </p>
               </TableCell>
 
               <TableCell className="text-right">
@@ -98,6 +110,9 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.material.name}
+                </p>
               </TableCell>
             </TableRow>
           </TableBody>
