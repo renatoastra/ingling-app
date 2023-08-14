@@ -1,13 +1,9 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
-export const useTimer = () => {
-  const [timer, setTimer] = useState(
-    Math.floor(
-      (new Date(new Date().setHours(24, 0, 0, 0)).getTime() -
-        new Date().getTime()) /
-        1000
-    )
-  );
+export const useTimer = (initialTimer: number) => {
+  const [timer, setTimer] = useState(initialTimer);
 
   const hours = Math.floor(timer / 3600);
   const minutes = Math.floor((timer % 3600) / 60);

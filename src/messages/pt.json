@@ -12,5 +12,23 @@
   },
   "LocaleLayout": {
     "title": "Inkling - Advinhe o personagem"
+  },
+  "GenshinTableHeader": {
+    "name": "Nome",
+    "element": "Elemento",
+    "weapon": "Arma",
+    "region": "Região",
+    "talent": "Talento",
+    "material": "Material",
+    "character": "Personagem"
+  },
+  "CorrectAnswerSection": {
+    "title": "Parabéns, na mosca! a resposta era {character} de {location}",
+    "footer": "Incrível! Mandou ver!! Você acertou em {tries, plural, =1 {UMA TENTATIVA 🎊🎉} other {# TENTATIVAS}}",
+    "share": "Compartilhar ➡️"
+  },
+  "GameSection": {
+    "select": "Selecionar",
+    "whoIsTheCharacter": "Quem é o personagem do dia?"
   }
 }

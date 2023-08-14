@@ -1,32 +1,96 @@
 import { api } from "@/trpc/server";
 import { GameSection } from "./_components/GameSection";
 import { Timer } from "./_components/Timer";
+import { prisma } from "@/server/db";
+import { type Character } from "@prisma/client";
+
+async function dailyChracterGenerate() {
+  const today = new Date().toLocaleDateString("pt-BR");
+  const hasCharacterForToday = await prisma.characterOfTheDay.findFirst({
+    where: {
+      createdAt: today,
+    },
+  });
+
+  const characters = await prisma.character.findMany({});
+
+  if (!hasCharacterForToday && characters.length) {
+    const randomCharacter: Character | undefined =
+      characters[Math.floor(Math.random() * characters.length)];
+
+    if (!randomCharacter) return null;
+
+    const create = await prisma.characterOfTheDay.create({
+      data: {
+        characterId: randomCharacter.id,
+        createdAt: today,
+      },
+      include: {
+        Character: {
+          select: {
+            name: true,
+            image: true,
+
+            element: {
+              select: {
+                name: true,
+                image: true,
+                id: true,
+              },
+            },
+            faction: {
+              select: {
+                name: true,
+                image: true,
+                id: true,
+              },
+            },
+            material: {
+              select: {
+                id: true,
+                name: true,
+                image: true,
+              },
+            },
+            talents: {
+              select: {
+                id: true,
+                name: true,
+                image: true,
+              },
+            },
+            weapon: {
+              select: {
+                id: true,
+                name: true,
+                image: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    return create;
+  }
+
+  return hasCharacterForToday;
+}
 
 export default async function Home() {
   const data = await api.character.getByGame.query({
     gameId: "cll0uj2bc0000iblwryjtriof",
   });
 
-  // {data?.map((character) => {
-  //   return (
-  //     <div
-  //       key={character.id}
-  //       className=" mt-8 flex flex-col items-start gap-3 rounded-lg bg-gray-800 px-4 py-2 text-4xl shadow-lg"
-  //     >
-  //       <div>{character.name}</div>
-  //       <div className="flex items-center justify-center gap-3">
-  //         <img width={150} src={character.image} />
-  //         <img width={100} src={character.element.image} />
-  //         <div>
-  //           <img width={100} src={character.weapon.image} />
-  //           <img width={100} src={character.talents.image} />
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // })}
+  const dailyCharacter = await api.character.dailyCharacterByGame.query({
+    gameId: "cll0uj2bc0000iblwryjtriof",
+  });
 
-  console.log(data);
+  const initialTimer = Math.floor(
+    (new Date(new Date().setHours(24, 0, 0, 0)).getTime() -
+      new Date().getTime()) /
+      1000
+  );
 
   return (
     <div className="">
@@ -41,8 +105,8 @@ export default async function Home() {
         items-center
         justify-center gap-4"
       >
-        <Timer />
-        <GameSection data={data} />
+        <Timer initialTimer={initialTimer} />
+        <GameSection data={data} dailyCharacter={dailyCharacter} />
       </div>
     </div>
   );

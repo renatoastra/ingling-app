@@ -44,8 +44,9 @@ model Character {
     weapon   Weapon @relation(fields: [weaponId], references: [id])
     weaponId String
 
-    material   Material @relation(fields: [materialId], references: [id])
-    materialId String
+    material          Material            @relation(fields: [materialId], references: [id])
+    materialId        String
+    CharacterOfTheDay CharacterOfTheDay[]
 }
 
 model Faction {
@@ -104,4 +105,12 @@ model Material {
     game      Game     @relation(fields: [gameId], references: [id])
 
     Character Character[]
+}
+
+model CharacterOfTheDay {
+    id          Int    @id @default(autoincrement())
+    createdAt   String @unique
+    characterId String
+
+    Character Character @relation(fields: [characterId], references: [id])
 }

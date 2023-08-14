@@ -1,10 +1,13 @@
 "use client";
-
 import { useTimer } from "@/hooks/useTimer";
 import { useTranslations } from "next-intl";
 
-export const Timer = () => {
-  const { hours, minutes, seconds } = useTimer();
+interface TimerProps {
+  initialTimer: number;
+}
+
+export const Timer = ({ initialTimer }: TimerProps) => {
+  const { hours, minutes, seconds } = useTimer(initialTimer);
   const t = useTranslations("Index");
 
   const formatedTimer = `${hours.toString().padStart(2, "0")}:${minutes

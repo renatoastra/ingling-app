@@ -10,31 +10,50 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { type CharacterOutput } from "@/types/character";
+import { type NonNullableDailyCharacterOutput } from "@/types/daily-character";
+import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+
+export const CharacterTableHeader = () => {
+  const t = useTranslations("GenshinTableHeader");
+  return (
+    <TableHeader>
+      <TableRow>
+        <TableHead className="w-40 text-center">{t("character")}</TableHead>
+        <TableHead className="w-28 text-center">{t("element")}</TableHead>
+        <TableHead className="w-28 text-center">{t("region")}</TableHead>
+        <TableHead className="w-28 text-center">{t("weapon")}</TableHead>
+        <TableHead className="w-28 text-center">{t("talent")}</TableHead>
+        <TableHead className="w-28 text-center">{t("material")}</TableHead>
+      </TableRow>
+    </TableHeader>
+  );
+};
 
 interface Props {
   answer: CharacterOutput;
+  dailyCharacter: NonNullableDailyCharacterOutput;
 }
 
-export const CharacterTable = ({ answer }: Props) => {
+export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
+  const t = useTranslations("GameSection");
   return (
     <Table className="">
-      <TableCaption>Chute sem medo de ser feliz</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-40 text-center">Personagem</TableHead>
-          <TableHead className="w-28 text-center">Elemento</TableHead>
-          <TableHead className="w-28 text-center">Região</TableHead>
-          <TableHead className="w-28 text-center">Arma</TableHead>
-          <TableHead className="w-28 text-center">Talento</TableHead>
-          <TableHead className="w-28 text-center">Material</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
+      <TableCaption>{t("whoIsTheCharacter")}</TableCaption>
+      <CharacterTableHeader />
+      <TableBody className="mx-2">
         {answer.map((character) => {
           return (
             <TableRow key={character.id}>
-              <TableCell className="flex bg-green-500  font-medium">
+              <TableCell
+                className={clsx(
+                  `flex  font-medium dark:border-slate-700`,
+                  character.id === dailyCharacter.characterId
+                    ? "bg-green-700"
+                    : "bg-red-700"
+                )}
+              >
                 {
                   <Image
                     src={character.image}
@@ -44,7 +63,14 @@ export const CharacterTable = ({ answer }: Props) => {
                   />
                 }
               </TableCell>
-              <TableCell className=" bg-red-500 text-center">
+              <TableCell
+                className={clsx(
+                  ` border-collapse  border text-center dark:border-slate-700`,
+                  character.elementId === dailyCharacter.Character.element.id
+                    ? "bg-green-700"
+                    : "bg-red-700"
+                )}
+              >
                 {
                   <Image
                     src={character.element.image}
@@ -54,7 +80,14 @@ export const CharacterTable = ({ answer }: Props) => {
                   />
                 }
               </TableCell>
-              <TableCell className="bg-yellow-500">
+              <TableCell
+                className={clsx(
+                  ` border-collapse  border text-right dark:border-slate-700`,
+                  character.factionId === dailyCharacter.Character.faction.id
+                    ? "bg-green-700"
+                    : "bg-red-700"
+                )}
+              >
                 {
                   <Image
                     src={character.faction.image as string}
@@ -64,7 +97,14 @@ export const CharacterTable = ({ answer }: Props) => {
                   />
                 }
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell
+                className={clsx(
+                  `r  border-collapse border  text-right dark:border-slate-700`,
+                  character.weaponId === dailyCharacter.Character.weapon.id
+                    ? "bg-green-700"
+                    : "bg-red-700"
+                )}
+              >
                 {
                   <Image
                     src={character.weapon.image}
@@ -74,7 +114,14 @@ export const CharacterTable = ({ answer }: Props) => {
                   />
                 }
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell
+                className={clsx(
+                  `border-collapse  border text-right dark:border-slate-700`,
+                  character.talentsId === dailyCharacter.Character.talents.id
+                    ? "bg-green-700"
+                    : "bg-red-700"
+                )}
+              >
                 {
                   <Image
                     src={character.talents.image}
@@ -85,7 +132,14 @@ export const CharacterTable = ({ answer }: Props) => {
                 }
               </TableCell>
 
-              <TableCell className="text-right">
+              <TableCell
+                className={clsx(
+                  `border-collapse  border text-right dark:border-slate-700`,
+                  character.materialId === dailyCharacter.Character.material.id
+                    ? "bg-green-700"
+                    : "bg-red-700"
+                )}
+              >
                 {
                   <Image
                     src={character.material.image}
