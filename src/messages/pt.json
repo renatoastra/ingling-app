@@ -1,11 +1,14 @@
 {
   "Index": {
-    "title": "OLA MUNDO"
+    "title": "OLA MUNDO",
+    "timer": "Próximo personagem em"
   },
   "Sidebar": {
     "english": "Inglês",
     "spanish": "Espanhol",
-    "portuguese": "Português"
+    "portuguese": "Português",
+    "light": "Claro",
+    "dark": "Escuro"
   },
   "LocaleLayout": {
     "title": "Inkling - Advinhe o personagem"

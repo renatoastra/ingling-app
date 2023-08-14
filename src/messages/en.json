@@ -1,11 +1,14 @@
 {
   "Index": {
-    "title": "Hello world!"
+    "title": "Hello world!",
+    "timer": "Next Character in "
   },
   "Sidebar": {
     "english": "English",
     "spanish": "Spanish",
-    "portuguese": "Portuguese"
+    "portuguese": "Portuguese",
+    "light": "Light",
+    "dark": "Dark"
   },
   "LocaleLayout": {
     "title": "Inkling - Guess who"
