@@ -42,7 +42,11 @@ export const Sidebar = () => {
         </div>
 
         <footer className="flex h-full w-full flex-col items-center justify-end ">
-          <Link href={"https://github.com/renatoastra"} target="_blank">
+          <Link
+            href={"https://github.com/renatoastra"}
+            className="w-full"
+            target="_blank"
+          >
             <Button variant="outline" size="icon" className="w-full">
               <GitHubLogoIcon
                 className="h-[1.2rem] w-[1.2rem] text-primary
