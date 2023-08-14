@@ -8,7 +8,7 @@ import { ChangeLanguage } from "./ChangeLang";
 export const Sidebar = () => {
   return (
     <nav
-      className="absolute z-10  h-screen w-[150px]  border-r
+      className=" fixed z-10  h-screen w-[150px]  border-r
      border-secondary shadow-md dark:border-slate-800"
     >
       <div className="flex h-full w-full flex-col items-center justify-start gap-3 px-4 py-11 ">
