@@ -47,6 +47,7 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
           return (
             <TableRow key={character.id}>
               <TableCell
+                title={character.name}
                 className={clsx(
                   `flex  font-medium dark:border-slate-700`,
                   character.id === dailyCharacter.characterId
@@ -77,9 +78,12 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
                     src={character.element.image}
                     width={102}
                     height={102}
-                    alt=""
+                    alt={`${character.element.name} icon`}
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.element.name}
+                </p>
               </TableCell>
               <TableCell
                 className={clsx(
@@ -94,9 +98,12 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
                     src={character.faction.image as string}
                     width={102}
                     height={102}
-                    alt="..."
+                    alt={`${character.faction.name} icon`}
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.faction.name}
+                </p>
               </TableCell>
               <TableCell
                 className={clsx(
@@ -111,9 +118,12 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
                     src={character.weapon.image}
                     width={102}
                     height={102}
-                    alt="..."
+                    alt={`${character.weapon.name} icon`}
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.weapon.name}
+                </p>
               </TableCell>
               <TableCell
                 className={clsx(
@@ -128,9 +138,12 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
                     src={character.talents.image}
                     width={102}
                     height={102}
-                    alt="..."
+                    alt={`${character.talents.name} icon`}
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.talents.name}
+                </p>
               </TableCell>
 
               <TableCell
@@ -146,9 +159,12 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
                     src={character.material.image}
                     width={102}
                     height={102}
-                    alt="..."
+                    alt={`${character.material.name} icon`}
                   />
                 }
+                <p className="text-center font-mono  text-xs text-muted-foreground">
+                  {character.material.name}
+                </p>
               </TableCell>
             </TableRow>
           );
