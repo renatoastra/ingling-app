@@ -16,7 +16,7 @@ const config = {
       }
 
     ],
-    domains: ['**', "*", "static.wikia.nocookie.net"]
+    domains: ['**', "*", "static.wikia.nocookie.net", "res.cloudinary.com"]
   },
 };
 
