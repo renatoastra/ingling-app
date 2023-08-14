@@ -4,7 +4,20 @@ import "./src/env.mjs";
 
 const config = {
   experimental: { serverActions: true },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "**",
+      }
 
+    ],
+    domains: ['**', "*"]
+  },
 };
 
 
