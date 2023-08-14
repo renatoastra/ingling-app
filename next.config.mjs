@@ -16,7 +16,7 @@ const config = {
       }
 
     ],
-    domains: ['**', "*"]
+    domains: ['**', "*", "static.wikia.nocookie.net"]
   },
 };
 
