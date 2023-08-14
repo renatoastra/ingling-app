@@ -1,5 +1,6 @@
 import { api } from "@/trpc/server";
-import { SelectOptions } from "./_components/SelectOptions";
+import { GameSection } from "./_components/GameSection";
+import { Timer } from "./_components/Timer";
 
 export default async function Home() {
   const data = await api.character.getByGame.query({
@@ -40,10 +41,8 @@ export default async function Home() {
         items-center
         justify-center gap-4"
       >
-        <h1 className="mb-7 mt-2 text-5xl font-bold">
-          Próximo personagem em 03:38:21
-        </h1>
-        <SelectOptions data={data} />
+        <Timer />
+        <GameSection data={data} />
       </div>
     </div>
   );
