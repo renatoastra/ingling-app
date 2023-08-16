@@ -49,7 +49,7 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
               <TableCell
                 title={character.name}
                 className={clsx(
-                  `flex  font-medium dark:border-slate-700`,
+                  ` font-medium dark:border-slate-700`,
                   character.id === dailyCharacter.characterId
                     ? "bg-green-700"
                     : "bg-red-700"

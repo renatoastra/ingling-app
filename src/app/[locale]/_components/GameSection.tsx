@@ -15,6 +15,32 @@ interface GameSectionProps {
   dailyCharacter: DailyCharacterOutput;
 }
 
+interface OptionsProps {
+  data: {
+    image: string;
+    label: string;
+    value: string;
+  };
+}
+
+const Option = (props: OptionsProps) => {
+  return (
+    <div
+      key={props.data.value}
+      className="flex cursor-pointer items-center gap-3 px-4 py-2 hover:bg-slate-200 hover:dark:bg-slate-700"
+    >
+      <img
+        className="w-20 w-full bg-slate-200 object-cover px-2 py-1 shadow-lg dark:bg-slate-800"
+        src={props.data.image}
+        alt={props.data.label}
+      />
+      <div className="font-mono text-xl uppercase text-muted-foreground">
+        {props.data.label}
+      </div>
+    </div>
+  );
+};
+
 export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
   const [answer, setAnswer] = useState<typeof data>([]);
   const [explode, setExplode] = useState(false);
@@ -28,6 +54,7 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
     return {
       value: character.id,
       label: character.name,
+      image: character.image,
     };
   });
 
@@ -72,31 +99,32 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex w-full flex-col items-center gap-6">
       {explode && <ConfettiExplosion />}
       {!userAlreadyAnswer && dailyCharacter && (
-        <>
+        <div className="w-2/3">
           <Select
             placeholder={t("select")}
+            className="w-full"
             classNames={{
               control: () =>
-                "border w-[500px] dark:border-slate-800 rounded-lg dark:text-white dark:bg-slate-900 bg-slate-300 hover:cursor-pointer",
-              input: () => "dark:bg-slate-900 ",
-              placeholder: () => "dark:text-slate-300  text-primary ",
-              menu: () => "dark:bg-slate-900 bg-slate-300",
+                "border-0 w-full dark:border-slate-800 rounded-lg ring-0 py-1 px-1  dark:text-white dark:bg-slate-900 bg-slate-100 hover:cursor-pointer",
+              menu: () => "dark:bg-slate-900 bg-slate-100  dark:text-white ",
               option: ({ isSelected, isFocused }) =>
                 clsx(
-                  "dark:bg-slate-900 bg-slate-300  hover:dark:bg-slate-700  hover:cursor-pointer",
+                  "dark:bg-slate-900 bg-slate-100 hover:bg-slate-300 text-muted-foreground hover:dark:bg-slate-700  hover:cursor-pointer",
                   isSelected && "bg-indigo-500",
                   isFocused && "bg-indigo-500"
                 ),
             }}
-            options={options}
+            hideSelectedOptions
             // @ts-ignore
             onChange={handleOnSelect}
+            options={options}
+            components={{ Option }}
           />
           <CharacterTable answer={answer} dailyCharacter={dailyCharacter} />
-        </>
+        </div>
       )}
 
       {userAlreadyAnswer && dailyCharacter?.Character && (
