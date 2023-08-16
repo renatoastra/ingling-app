@@ -15,8 +15,9 @@ export const Timer = ({ initialTimer }: TimerProps) => {
     .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 
   return (
-    <h1 className="mb-7 mt-2 text-5xl font-bold">
-      {t("timer")} {formatedTimer}
-    </h1>
+    <div className="mb-4 text-center  text-2xl font-bold text-primary sm:text-4xl">
+      <h1 className="mb-2">{t("timer")}</h1>
+      <span className="text-center text-4xl sm:text-8xl">{formatedTimer}</span>
+    </div>
   );
 };

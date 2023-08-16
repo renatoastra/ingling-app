@@ -95,7 +95,7 @@ export default async function Home() {
   return (
     <div className="">
       <nav
-        className="mb-14 flex
+        className="mb-4 flex
         h-12  w-full
         items-center justify-center
         border-b border-input"
@@ -103,7 +103,7 @@ export default async function Home() {
       <div
         className="flex flex-col 
         items-center
-        justify-center gap-4"
+        justify-center gap-4 "
       >
         <Timer initialTimer={initialTimer} />
         <GameSection data={data} dailyCharacter={dailyCharacter} />
