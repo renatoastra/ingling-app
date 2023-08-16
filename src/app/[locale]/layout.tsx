@@ -60,7 +60,7 @@ export default async function RootLayout({
         {/* // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
-            <div className="ml-[150px]">{children}</div>
+            <div className="w-full md:ml-[150px]">{children}</div>
           </Providers>
         </NextIntlClientProvider>
       </body>

@@ -98,7 +98,7 @@ export default async function Home() {
         className="mb-4 flex
         h-12  w-full
         items-center justify-center
-        border-b border-input"
+        border-input md:border-b"
       ></nav>
       <div
         className="flex flex-col 

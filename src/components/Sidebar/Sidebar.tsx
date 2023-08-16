@@ -9,8 +9,8 @@ import Link from "next/link";
 export const Sidebar = () => {
   return (
     <nav
-      className=" fixed z-10  h-screen w-[150px]  border-r
-     border-secondary shadow-md dark:border-slate-800"
+      className=" z-10 hidden h-screen  border-r border-secondary  shadow-md
+     dark:border-slate-800 sm:w-[150px] md:fixed"
     >
       <div className="flex h-full w-full flex-col items-center justify-start gap-3 px-4 py-11 ">
         <div>
