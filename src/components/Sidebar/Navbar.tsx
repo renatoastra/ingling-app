@@ -5,8 +5,8 @@ import { ChangeLanguage } from "./ChangeLang";
 export const Navbar = () => {
   return (
     <nav
-      className=" fixed right-0 top-0 z-10  w-full border-b border-secondary  px-4  
-     py-3 shadow-md dark:border-slate-800"
+      className=" fixed right-0 top-0 z-10 w-full  border-b border-secondary px-4  py-3  
+     shadow-md dark:border-slate-800 md:hidden"
     >
       <div className="flex items-center justify-between">
         <h1
