@@ -32,7 +32,7 @@ const Option = (props: OptionsProps) => {
       className="flex cursor-pointer items-center gap-3 px-4 py-2 hover:bg-slate-200 hover:dark:bg-slate-700"
     >
       <img
-        className="w-20 w-full bg-slate-200 object-cover px-2 py-1 shadow-lg dark:bg-slate-800"
+        className="w-20  bg-slate-200 object-cover px-2 py-1 shadow-lg dark:bg-slate-800"
         src={props.data.image}
         alt={props.data.label}
       />
