@@ -3,7 +3,7 @@ import { type CharacterOutput } from "@/types/character";
 import clsx from "clsx";
 
 import { useEffect, useState } from "react";
-import Select, { type Props } from "react-select";
+import Select, { components } from "react-select";
 import { CharacterTable } from "./CharacterTable";
 import ConfettiExplosion from "react-confetti-explosion";
 import { CorrectAnswerSection } from "./CorrectAnswerSection";
@@ -25,7 +25,9 @@ interface OptionsProps {
 
 const Option = (props: OptionsProps) => {
   return (
-    <div
+    // @ts-ignore
+    <components.Option
+      {...props}
       key={props.data.value}
       className="flex cursor-pointer items-center gap-3 px-4 py-2 hover:bg-slate-200 hover:dark:bg-slate-700"
     >
@@ -37,7 +39,7 @@ const Option = (props: OptionsProps) => {
       <div className="font-mono text-xl uppercase text-muted-foreground">
         {props.data.label}
       </div>
-    </div>
+    </components.Option>
   );
 };
 
@@ -52,9 +54,9 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
   });
   const options = data.map((character) => {
     return {
-      value: character.id,
-      label: character.name,
       image: character.image,
+      label: character.name,
+      value: character.id,
     };
   });
 
@@ -78,6 +80,10 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
   }, []);
 
   const handleOnSelect = (userAnswer: (typeof options)[0]) => {
+    console.log(
+      "🚀 ~ file: GameSection.tsx:81 ~ handleOnSelect ~ userAnswer:",
+      userAnswer
+    );
     const currentCharacter = data.filter((character) => {
       return character.id === userAnswer.value;
     })[0];
@@ -102,27 +108,29 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
     <div className="flex w-full flex-col items-center gap-6">
       {explode && <ConfettiExplosion />}
       {!userAlreadyAnswer && dailyCharacter && (
-        <div className="w-2/3">
-          <Select
-            placeholder={t("select")}
-            className="w-full"
-            classNames={{
-              control: () =>
-                "border-0 w-full dark:border-slate-800 rounded-lg ring-0 py-1 px-1  dark:text-white dark:bg-slate-900 bg-slate-100 hover:cursor-pointer",
-              menu: () => "dark:bg-slate-900 bg-slate-100  dark:text-white ",
-              option: ({ isSelected, isFocused }) =>
-                clsx(
-                  "dark:bg-slate-900 bg-slate-100 hover:bg-slate-300 text-muted-foreground hover:dark:bg-slate-700  hover:cursor-pointer",
-                  isSelected && "bg-indigo-500",
-                  isFocused && "bg-indigo-500"
-                ),
-            }}
-            hideSelectedOptions
-            // @ts-ignore
-            onChange={handleOnSelect}
-            options={options}
-            components={{ Option }}
-          />
+        <div className="flex w-full flex-col items-center px-20 py-6">
+          <div className="w-[400px]">
+            <Select
+              placeholder={t("select")}
+              className="w-full"
+              classNames={{
+                control: () =>
+                  "border-0 w-full dark:border-slate-800 rounded-lg ring-0 py-1 px-1  dark:text-white dark:bg-slate-900 bg-slate-100 hover:cursor-pointer",
+                menu: () => "dark:bg-slate-900 bg-slate-100  dark:text-white ",
+                option: ({ isSelected, isFocused }) =>
+                  clsx(
+                    "dark:bg-slate-900 bg-slate-100 hover:bg-slate-300 text-muted-foreground hover:dark:bg-slate-700  hover:cursor-pointer",
+                    isSelected && "bg-indigo-500",
+                    isFocused && "bg-indigo-500"
+                  ),
+              }}
+              hideSelectedOptions
+              // @ts-ignore
+              onChange={handleOnSelect}
+              options={options}
+              components={{ Option }}
+            />
+          </div>
           <CharacterTable answer={answer} dailyCharacter={dailyCharacter} />
         </div>
       )}
