@@ -80,10 +80,6 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
   }, []);
 
   const handleOnSelect = (userAnswer: (typeof options)[0]) => {
-    console.log(
-      "🚀 ~ file: GameSection.tsx:81 ~ handleOnSelect ~ userAnswer:",
-      userAnswer
-    );
     const currentCharacter = data.filter((character) => {
       return character.id === userAnswer.value;
     })[0];
@@ -108,29 +104,28 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
     <div className="flex w-full flex-col items-center gap-6">
       {explode && <ConfettiExplosion />}
       {!userAlreadyAnswer && dailyCharacter && (
-        <div className="flex w-full flex-col items-center px-20 py-6">
-          <div className="w-[400px]">
-            <Select
-              placeholder={t("select")}
-              className="w-full"
-              classNames={{
-                control: () =>
-                  "border-0 w-full dark:border-slate-800 rounded-lg ring-0 py-1 px-1  dark:text-white dark:bg-slate-900 bg-slate-100 hover:cursor-pointer",
-                menu: () => "dark:bg-slate-900 bg-slate-100  dark:text-white ",
-                option: ({ isSelected, isFocused }) =>
-                  clsx(
-                    "dark:bg-slate-900 bg-slate-100 hover:bg-slate-300 text-muted-foreground hover:dark:bg-slate-700  hover:cursor-pointer",
-                    isSelected && "bg-indigo-500",
-                    isFocused && "bg-indigo-500"
-                  ),
-              }}
-              hideSelectedOptions
-              // @ts-ignore
-              onChange={handleOnSelect}
-              options={options}
-              components={{ Option }}
-            />
-          </div>
+        <div className=" flex w-[800px] flex-col items-center gap-9">
+          <Select
+            placeholder={t("select")}
+            className="w-[500px]  "
+            classNames={{
+              control: () =>
+                "border-0  w-full dark:border-slate-800 rounded-lg ring-0 py-1 px-1  dark:bg-slate-900 bg-slate-100 hover:cursor-pointer",
+              menu: () => "dark:bg-slate-900 bg-slate-100  ",
+              option: ({ isSelected, isFocused }) =>
+                clsx(
+                  "dark:bg-slate-900 bg-slate-100 hover:bg-slate-300 dark:text-white hover:dark:bg-slate-700  hover:cursor-pointer",
+                  isSelected && "bg-indigo-500",
+                  isFocused && "bg-indigo-500"
+                ),
+              singleValue: () => "text-secondary-foreground dark:text-white",
+            }}
+            hideSelectedOptions
+            // @ts-ignore
+            onChange={handleOnSelect}
+            options={options}
+            components={{ Option }}
+          />
           <CharacterTable answer={answer} dailyCharacter={dailyCharacter} />
         </div>
       )}

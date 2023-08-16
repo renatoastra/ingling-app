@@ -42,14 +42,14 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
     <Table className="">
       <TableCaption>{t("whoIsTheCharacter")}</TableCaption>
       <CharacterTableHeader />
-      <TableBody className="mx-2">
+      <TableBody className="">
         {answer.map((character) => {
           return (
             <TableRow key={character.id}>
               <TableCell
                 title={character.name}
                 className={clsx(
-                  ` font-medium dark:border-slate-700`,
+                  `flex items-center justify-center font-medium dark:border-slate-700`,
                   character.id === dailyCharacter.characterId
                     ? "bg-green-700"
                     : "bg-red-700"
@@ -67,7 +67,7 @@ export const CharacterTable = ({ answer, dailyCharacter }: Props) => {
               <TableCell
                 title={`${character.element.name}`}
                 className={clsx(
-                  ` border-collapse  border text-center dark:border-slate-700`,
+                  `border-collapse border  dark:border-slate-700`,
                   character.elementId === dailyCharacter.Character.element.id
                     ? "bg-green-700"
                     : "bg-red-700"
