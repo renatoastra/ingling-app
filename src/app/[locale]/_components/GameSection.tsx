@@ -101,14 +101,14 @@ export const GameSection = ({ data, dailyCharacter }: GameSectionProps) => {
   };
 
   return (
-    <div className="flex w-full flex-col items-center gap-6">
+    <div className="flex w-full flex-col items-center gap-6  md:w-[800px]">
       {explode && <ConfettiExplosion />}
       {!userAlreadyAnswer && dailyCharacter && (
-        <div className=" flex w-[800px] flex-col items-center gap-9">
+        <div className=" flex w-full flex-col items-center gap-9 px-6">
           <Select
             placeholder={t("select")}
-            className="w-[500px]  "
             classNames={{
+              container: () => "w-full md:w-[400px]",
               control: () =>
                 "border-0  w-full dark:border-slate-800 rounded-lg ring-0 py-1 px-1  dark:bg-slate-900 bg-slate-100 hover:cursor-pointer",
               menu: () => "dark:bg-slate-900 bg-slate-100  ",
