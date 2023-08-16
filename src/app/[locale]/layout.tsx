@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, createTranslator } from "next-intl";
 import { type ReactNode } from "react";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,17 @@ export default async function RootLayout({
           </Providers>
         </NextIntlClientProvider>
       </body>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-P1P36WTC5Q" />
+      <Script
+        id="gtag"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-P1P36WTC5Q');`,
+        }}
+      />
     </html>
   );
 }
