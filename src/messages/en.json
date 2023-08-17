@@ -23,7 +23,8 @@
     "character": "Character"
   },
   "CorrectAnswerSection": {
-    "title": "Yay!! You got it right! the answer was {character} from {location}",
+    "title": "Yay!! You got it right!",
+    "theAnswerWas": "the answer was {character} from {location}",
     "footer": "Awesome! Keep it up! you got it right in {tries, plural, =0 {No tries} =1 {One try! 🎊🎉} other {# tries}}",
     "share": "Share ➡️"
   },

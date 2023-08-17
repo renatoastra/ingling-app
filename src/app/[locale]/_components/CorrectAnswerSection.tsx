@@ -6,7 +6,6 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
-import { type CharacterOutput } from "@/types/character";
 import { CharacterTableHeader } from "./CharacterTable";
 import Image from "next/image";
 import { TwitterShareButton } from "react-share";
@@ -25,20 +24,35 @@ export const CorrectAnswerSection = ({
   const t = useTranslations("CorrectAnswerSection");
   const character = characterOfTheDay.Character;
   return (
-    <div className="flex flex-col items-center  gap-6">
-      <div className="mt-8">
-        <h1 className="mb-8 text-3xl font-bold">
-          {t("title", {
-            character: character.name,
-            location: character.faction.name,
-          })}
-        </h1>
+    <div className="flex w-full flex-col items-center gap-6 px-3">
+      <div className="w-full md:mt-8">
+        <div className="flex w-full flex-col">
+          <h1 className="break-words  text-center text-3xl font-bold text-indigo-300  dark:text-muted-foreground md:mb-8 md:text-3xl">
+            {t("title", {
+              character: character.name,
+              location: character.faction.name,
+            })}
+          </h1>
+          <h2 className="text-center  text-2xl font-bold text-indigo-300 dark:text-muted-foreground md:text-4xl">
+            {t("theAnswerWas", {
+              character: character.name,
+              location: character.faction.name,
+            })}
+          </h2>
+        </div>
+
         <Table>
-          <TableCaption> {t("footer", { tries })}</TableCaption>
+          <TableCaption className="text-left md:text-center">
+            {" "}
+            {t("footer", { tries })}
+          </TableCaption>
           <CharacterTableHeader />
           <TableBody>
-            <TableRow className="bg-secondary dark:bg-slate-900">
-              <TableCell className="flex font-medium" title={character.name}>
+            <TableRow className="bg-secondary  dark:bg-slate-900">
+              <TableCell
+                className="border-collapse border  bg-green-700 font-medium dark:border-slate-700"
+                title={character.name}
+              >
                 {
                   <Image
                     src={character.image}
@@ -48,7 +62,7 @@ export const CorrectAnswerSection = ({
                   />
                 }
               </TableCell>
-              <TableCell className=" 0 text-center">
+              <TableCell className="border-collapse border bg-green-700  text-center dark:border-slate-700">
                 {
                   <Image
                     src={character.element.image}
@@ -57,11 +71,11 @@ export const CorrectAnswerSection = ({
                     alt=""
                   />
                 }
-                <p className="text-center font-mono  text-xs text-muted-foreground">
+                <p className="text-center font-mono  text-xs text-indigo-300 dark:text-muted-foreground">
                   {character.element.name}
                 </p>
               </TableCell>
-              <TableCell className="">
+              <TableCell className="border-collapse border-x bg-green-700 text-right dark:border-slate-700">
                 {
                   <Image
                     src={character.faction.image as string}
@@ -70,11 +84,11 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
-                <p className="text-center font-mono  text-xs text-muted-foreground">
+                <p className="text-center font-mono  text-xs text-indigo-300 dark:text-muted-foreground">
                   {character.faction.name}
                 </p>
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell className="border-collapse border-x bg-green-700 text-right dark:border-slate-700">
                 {
                   <Image
                     src={character.weapon.image}
@@ -83,11 +97,11 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
-                <p className="text-center font-mono  text-xs text-muted-foreground">
+                <p className="text-center font-mono  text-xs text-indigo-300 dark:text-muted-foreground">
                   {character.weapon.name}
                 </p>
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell className="border-collapse border-x bg-green-700 text-right dark:border-slate-700">
                 {
                   <Image
                     src={character.talents.image}
@@ -96,12 +110,12 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
-                <p className="text-center font-mono  text-xs text-muted-foreground">
+                <p className="text-center font-mono  text-xs text-indigo-300 dark:text-muted-foreground">
                   {character.talents.name}
                 </p>
               </TableCell>
 
-              <TableCell className="text-right">
+              <TableCell className="border-collapse border-x bg-green-700 text-right dark:border-slate-700">
                 {
                   <Image
                     src={character.material.image}
@@ -110,7 +124,7 @@ export const CorrectAnswerSection = ({
                     alt="..."
                   />
                 }
-                <p className="text-center font-mono  text-xs text-muted-foreground">
+                <p className="text-center font-mono  text-xs text-indigo-300 dark:text-muted-foreground">
                   {character.material.name}
                 </p>
               </TableCell>
@@ -118,15 +132,18 @@ export const CorrectAnswerSection = ({
           </TableBody>
         </Table>
 
-        <TwitterShareButton
-          url={"https://stardle.vercel.app/"}
-          title={`Eu acertei o personagem de hoje do @stardleapp em ${tries} tentativas! `}
-          hashtags={["stardleapp", "genshinimpact"]}
-        >
-          <button className="mt-8 rounded-lg bg-indigo-300 px-6 py-3 text-secondary dark:bg-slate-700">
-            {t("share")}
-          </button>
-        </TwitterShareButton>
+        <div className="max-md:w-full">
+          <TwitterShareButton
+            url={"https://stardle.vercel.app/"}
+            title={`Eu acertei o personagem de hoje do @stardleapp em ${tries} tentativas! `}
+            hashtags={["stardleapp", "genshinimpact"]}
+            className="max-md:w-full"
+          >
+            <button className="mt-8 rounded-lg bg-indigo-300 px-6 py-3 text-secondary dark:bg-slate-700 max-md:w-full">
+              {t("share")}
+            </button>
+          </TwitterShareButton>
+        </div>
       </div>
     </div>
   );

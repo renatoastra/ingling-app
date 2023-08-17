@@ -23,7 +23,8 @@
     "character": "Personagem"
   },
   "CorrectAnswerSection": {
-    "title": "Parabéns, na mosca! a resposta era {character} de {location}",
+    "title": "Parabéns, na mosca! ",
+    "theAnswerWas": "a resposta era {character} de {location}",
     "footer": "Incrível! Mandou ver!! Você acertou em {tries, plural, =1 {UMA TENTATIVA 🎊🎉} other {# TENTATIVAS}}",
     "share": "Compartilhar ➡️"
   },
