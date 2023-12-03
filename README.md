@@ -8,9 +8,8 @@ This is a word game inspired by the popular game Wordle, but with a unique twist
 
 Each game consists of guessing the name of a Genshin Impact character. You have ilimited attempts to guess the name. After each attempt, the game will give you color-coded hints:
 
-- Green: The letter is correct and in the right place.
-- Yellow: The letter is correct but in the wrong place.
-- Gray: The letter is incorrect.
+- Green: The attempt is correct and in the right place.
+- Red: Wrong, you can try it again!
 
 The game should now be running [here](https://ingling-app.vercel.app/).
 
