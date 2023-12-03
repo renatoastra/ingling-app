@@ -1,28 +1,39 @@
-# Create T3 App
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-## What's next? How do I make an app with this?
+## INGLING APP.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+This is a word game inspired by the popular game Wordle, but with a unique twist - all the characters are from the popular game Genshin Impact! Test your knowledge of Genshin Impact characters and improve your word-solving skills at the same time.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## How to Play
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+Each game consists of guessing the name of a Genshin Impact character. You have ilimited attempts to guess the name. After each attempt, the game will give you color-coded hints:
 
-## Learn More
+- Green: The letter is correct and in the right place.
+- Yellow: The letter is correct but in the wrong place.
+- Gray: The letter is incorrect.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+The game should now be running [here](https://ingling-app.vercel.app/).
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Technologies Used
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- TypeScript
+- React
+- tRPC
+- Tailwind
 
-## How do I deploy this?
+## Contribution
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Contributions are welcome! Feel free to open an issue or pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+If you have any questions or comments, feel free to contact me at [renatocosta072@gmail.com](mailto:renatocosta072@gmail.com).
+
+Enjoy playing Genshin Impact Wordle!
+
+![image](https://github.com/renatoastra/ingling-app/assets/82223861/cea9bdaa-bad1-41bc-85a8-1f802e1409fc)
+
